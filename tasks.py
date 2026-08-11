@@ -16,7 +16,7 @@ def view_tasks():
         while index < len(tasks):
             print(index + 1, ".", tasks[index])
             index = index + 1
-# Delete Tasks
+#delete task 
 def delete_tasks():
     if len(tasks) == 0:
         print("No tasks available to delete.")
@@ -26,11 +26,16 @@ def delete_tasks():
         while index < len(tasks):
             print(index + 1, ".", tasks[index])
             index = index + 1
+        try:
+            task_number = int(input("Enter task number to delete: "))
+            index = task_number - 1
+            tasks.pop(index)
+            print("Task deleted successfully!")
+        except ValueError:
+            print("Value Error")
+        except IndexError:
+            print("Index Error .. Select Again")
+       
 
-        task_number = int(input("Enter task number to delete: "))
-        index = task_number - 1
-        tasks.pop(index)
-
-        print("Task deleted successfully!")
 #pop() → removes an item using its index
 #remove() → removes an item by its value

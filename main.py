@@ -9,20 +9,28 @@ while choice != 6: # condition
     print("4. View Tasks")
     print("5. Delete Task")
     print("6. Exit")
+    #Exception Handling
+    try:
+            choice = int(input("Enter a Number:"))
+    except ValueError:
+            print("Please enter a number from 1 to 6.")
+            continue
 
-    choice = int(input("Enter a Number:")) #input
 
     #Sign up
     if choice==1:
         print("Sign up")
+        #created variable for username
         username=input("Username: ")
         if username in users:
             print("This username is already registered.Try another")
         else:
             print("Username is availaible")
-
+#Create variable for email
             email=input("Email: ")
+            #Created Variable for Password
             password=input("Password")
+            #Password Validation
             confirm_password = input("Confirm Password: ")
             if password==confirm_password:
               users[username]=[email,password]
